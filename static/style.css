@@ -1,0 +1,432 @@
+/* ===== Reset & Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #FFECC0 0%, #FFC29B 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ===== Container ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== Header ===== */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #B95E82;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.1rem;
+    color: #6B4266;
+}
+
+/* ===== Upload Section ===== */
+#uploadSection {
+    background: white;
+    border-radius: 20px;
+    padding: 60px 40px;
+    box-shadow: 0 10px 40px rgba(185, 94, 130, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.upload-box {
+    border: 3px dashed #F39F9F;
+    border-radius: 15px;
+    padding: 50px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #FFECC0;
+}
+
+.upload-box:hover {
+    border-color: #B95E82;
+    background: #FFC29B;
+    transform: translateY(-5px);
+}
+
+.upload-box.dragover {
+    border-color: #B95E82;
+    background: #F39F9F;
+    transform: scale(1.02);
+}
+
+.upload-icon {
+    margin-bottom: 20px;
+}
+
+.upload-icon svg {
+    width: 80px;
+    height: 80px;
+    color: #B95E82;
+}
+
+.upload-box h2 {
+    color: #B95E82;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.upload-box p {
+    color: #6B4266;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* ===== Sharpening Options ===== */
+.sharpen-options {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.sharpen-select {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 2px solid #F39F9F;
+    border-radius: 10px;
+    background: white;
+    color: #6B4266;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sharpen-select:hover {
+    border-color: #B95E82;
+}
+
+.sharpen-select:focus {
+    outline: none;
+    border-color: #B95E82;
+    box-shadow: 0 0 0 3px rgba(185, 94, 130, 0.1);
+}
+
+.sharpen-slider {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #FFECC0, #F39F9F, #B95E82);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.sharpen-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #B95E82;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.sharpen-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 3px 8px rgba(185, 94, 130, 0.4);
+}
+
+.sharpen-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #B95E82;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.sharpen-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 3px 8px rgba(185, 94, 130, 0.4);
+}
+
+.btn-upload {
+    background: linear-gradient(135deg, #F39F9F, #B95E82);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(185, 94, 130, 0.3);
+}
+
+.btn-upload:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(185, 94, 130, 0.4);
+}
+
+.btn-upload:active {
+    transform: translateY(-1px);
+}
+
+#fileInput {
+    display: none;
+}
+
+/* ===== Loading Section ===== */
+#loadingSection {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 20px;
+    padding: 80px 40px;
+    box-shadow: 0 10px 40px rgba(185, 94, 130, 0.2);
+}
+
+.spinner {
+    width: 80px;
+    height: 80px;
+    border: 8px solid #FFECC0;
+    border-top: 8px solid #B95E82;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 30px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loadingSection h2 {
+    color: #B95E82;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+#loadingSection p {
+    color: #6B4266;
+    font-size: 1rem;
+}
+
+/* ===== Results Section ===== */
+#resultsSection {
+    display: none;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(185, 94, 130, 0.2);
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.image-card {
+    background: #FFECC0;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.image-card h3 {
+    color: #B95E82;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.image-wrapper {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===== Action Buttons ===== */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #F39F9F, #B95E82);
+    color: white;
+    box-shadow: 0 5px 15px rgba(185, 94, 130, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(185, 94, 130, 0.4);
+}
+
+.btn-secondary {
+    background: #FFC29B;
+    color: #B95E82;
+    box-shadow: 0 5px 15px rgba(255, 194, 155, 0.3);
+}
+
+.btn-secondary:hover {
+    background: #FFECC0;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 194, 155, 0.4);
+}
+
+.btn-primary svg,
+.btn-secondary svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ===== Status Messages ===== */
+#statusMessage {
+    text-align: center;
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.status-success {
+    background: #d4edda;
+    color: #155724;
+    border: 2px solid #c3e6cb;
+}
+
+.status-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 2px solid #f5c6cb;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    #uploadSection {
+        padding: 40px 20px;
+    }
+
+    .upload-box {
+        padding: 40px 20px;
+    }
+
+    .upload-icon svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .upload-box h2 {
+        font-size: 1.3rem;
+    }
+
+    .btn-upload {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    #resultsSection {
+        padding: 20px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .upload-box h2 {
+        font-size: 1.1rem;
+    }
+
+    .upload-box p {
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#uploadSection,
+#loadingSection,
+#resultsSection {
+    animation: fadeIn 0.5s ease;
+}
